@@ -1,10 +1,12 @@
 package kommand.syntax
 
+import kommand.KommandContext
+
 class ExecutableSyntax<S: Syntax>(
 	private val syntax: S,
 	private val executor: SyntaxExecutor<S>
 ) {
-	fun executes() {
-		syntax.executor()
+	fun executes(context: KommandContext) {
+		syntax.executor(context)
 	}
 }

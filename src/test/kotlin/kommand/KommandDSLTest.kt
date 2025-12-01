@@ -21,15 +21,15 @@ class KommandDslTest {
 				val flag by string { }
 				val text by string { }
 			}
-				.executes {
-					println("First Syntax: $flag, $text")
+				.executes { context ->
+					println("First Syntax: ${flag.with(context)}, ${text.with(context)}")
 				}
 
 			+object : Syntax() {
 				val flag by boolean { }
 				val flag2 by boolean { default = true }
 			}
-				.executes {
+				.executes { context ->
 					println("Second Syntax: $flag, $flag2")
 				}
 		}

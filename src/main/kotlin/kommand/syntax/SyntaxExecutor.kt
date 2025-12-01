@@ -1,3 +1,5 @@
 package kommand.syntax
 
-typealias SyntaxExecutor<S> = S.() -> Unit
+import kommand.KommandContext
+
+typealias SyntaxExecutor<S> = S.(context: KommandContext) -> Unit
