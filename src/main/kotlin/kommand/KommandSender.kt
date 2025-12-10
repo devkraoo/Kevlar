@@ -1,0 +1,3 @@
+package kommand
+
+interface KommandSender

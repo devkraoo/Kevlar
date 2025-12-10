@@ -1,7 +1,6 @@
 package kommand
 
-import kommand.arguments.boolean
-import kommand.arguments.string
+import kommand.arguments.types.string
 import kommand.builder.kommand
 import kommand.syntax.Syntax
 import kommand.syntax.executes
@@ -12,8 +11,8 @@ class KommandDslTest {
 	@Test
 	fun `kommand DSL builds without throwing an exception`() {
 
-		val testCommand = kommand {
-			name = "test"
+		val fly = kommand {
+			name = "hi"
 			description = "nga"
 			aliases = listOf("hi")
 
@@ -21,16 +20,8 @@ class KommandDslTest {
 				val flag by string { }
 				val text by string { }
 			}
-				.executes { context ->
-					println("First Syntax: ${flag.with(context)}, ${text.with(context)}")
-				}
-
-			+object : Syntax() {
-				val flag by boolean { }
-				val flag2 by boolean { default = true }
-			}
-				.executes { context ->
-					println("Second Syntax: $flag, $flag2")
+				.executes {
+					println("First Syntax: ${flag.value}, ${text.v}")
 				}
 		}
 

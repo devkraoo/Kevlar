@@ -7,6 +7,6 @@ class ExecutableSyntax<S: Syntax>(
 	private val executor: SyntaxExecutor<S>
 ) {
 	fun executes(context: KommandContext) {
-		syntax.executor(context)
+		with(context) { syntax.executor() }
 	}
 }
