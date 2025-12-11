@@ -1,19 +1,18 @@
 package kommand.builder
 
-import kotlin.properties.PropertyDelegateProvider
+import kotlin.properties.ReadOnlyProperty
 import kotlin.reflect.KProperty
 
-sealed interface Kommand: PropertyDelegateProvider<Any?, KommandDelegate> {
-	override fun provideDelegate(thisRef: Any?, property: KProperty<*>): KommandDelegate =
-		KommandDelegate(property.name, this)
+sealed interface Kommand: ReadOnlyProperty<Any?, Kommand.Impl> {
+	override fun getValue(thisRef: Any?, property: KProperty<*>): Impl =
+		with(property.name) { impl }
 
+	context(_: String)
 	val impl: Impl
 
-	abstract class Impl {
-		context(property: KProperty<*>)
-		val name: String
-			get() = property.name
-		var description: String? = null
-		var aliases: List<String>? = null
-	}
+	data class Impl(
+		val name: String,
+		val description: String,
+		val aliases: List<String>
+	)
 }
