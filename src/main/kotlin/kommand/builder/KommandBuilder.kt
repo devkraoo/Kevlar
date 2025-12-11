@@ -1,22 +1,12 @@
 package kommand.builder
 
-import kommand.exceptions.KommandBuildException
 import kommand.syntax.ExecutableSyntax
 
-class KommandBuilder {
-	var name: String? = null
-	var description: String? = null
-	var aliases: List<String>? = null
-
-	operator fun <E: ExecutableSyntax<*>> E.unaryPlus() {  }
-
-	fun build() =
-		Kommand(
-			name ?: throw KommandBuildException(""),
-			description,
-			aliases
-		)
+class KommandBuilder(override val impl: Builder) : Kommand {
+	class Builder: Kommand.Impl() {
+		operator fun <E: ExecutableSyntax<*>> E.unaryPlus() {  }
+	}
 }
 
-fun kommand(init: KommandBuilder.() -> Unit): Kommand =
-	KommandBuilder().apply(init).build()
+fun kommand(init: KommandBuilder.Builder.() -> Unit) =
+	KommandBuilder(KommandBuilder.Builder().apply(init))

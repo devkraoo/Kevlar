@@ -11,8 +11,7 @@ class KommandDslTest {
 	@Test
 	fun `kommand DSL builds without throwing an exception`() {
 
-		val fly = kommand {
-			name = "hi"
+		val fly by kommand {
 			description = "nga"
 			aliases = listOf("hi")
 
