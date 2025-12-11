@@ -5,7 +5,7 @@ import kommand.syntax.Syntax
 import kotlin.properties.ReadOnlyProperty
 import kotlin.reflect.KProperty
 
-abstract class ArgumentDelegate<T>(val name: String) : Argument<T>(), ReadOnlyProperty<Syntax, ArgumentDelegate<T>> {
+class ArgumentDelegate<T>(val name: String, impl: Argument<T>) : Argument<T> by impl, ReadOnlyProperty<Syntax, ArgumentDelegate<T>> {
 	override fun getValue(thisRef: Syntax, property: KProperty<*>): ArgumentDelegate<T> =
 		this
 

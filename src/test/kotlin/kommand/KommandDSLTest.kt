@@ -17,7 +17,7 @@ class KommandDslTest {
 			aliases = listOf("hi")
 
 			+object : Syntax() {
-				val flag by string { }
+				val flag by string { description = "flag"; greedy = true }
 				val text by string { }
 			}
 				.executes {
