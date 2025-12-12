@@ -1,3 +1,3 @@
-package kommand
+package kommand.syntax
 
 interface KommandSender
