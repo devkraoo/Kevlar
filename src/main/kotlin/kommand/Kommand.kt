@@ -19,14 +19,14 @@ class Kommand(private val builder: Builder): ReadOnlyProperty<Any?, Kommand.Impl
 		var aliases = listOf<String>()
 
 		operator fun <E: ExecutableSyntax<*>> E.unaryPlus() {  }
-
-		internal fun build(name: String) =
-			Impl(
-				name,
-				description,
-				aliases
-			)
 	}
+
+	private fun Builder.build(name: String): Impl =
+		Impl(
+			name,
+			description,
+			aliases
+		)
 }
 
 fun kommand(init: Kommand.Builder.() -> Unit) =
