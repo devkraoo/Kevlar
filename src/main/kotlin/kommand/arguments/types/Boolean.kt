@@ -4,9 +4,7 @@ import kommand.arguments.Argument
 import kommand.arguments.ArgumentDefinition
 
 class BooleanArgument(override val config: Config) : ArgumentDefinition<Boolean>() {
-	class Config : Argument.Config() {
-		var greedy = false
-	}
+	class Config : Argument.Config<Boolean>()
 
 	override fun parse(token: String): Boolean =
 		TODO()

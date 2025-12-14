@@ -5,13 +5,19 @@ import kotlin.properties.PropertyDelegateProvider
 import kotlin.reflect.KProperty
 
 sealed interface Argument<T>: PropertyDelegateProvider<Syntax, ArgumentDelegate<T>> {
-	override fun provideDelegate(thisRef: Syntax, property: KProperty<*>): ArgumentDelegate<T> =
-		ArgumentDelegate(property.name, this)
+	override fun provideDelegate(thisRef: Syntax, property: KProperty<*>): ArgumentDelegate<T> {
+		val argumentDelegate = ArgumentDelegate(property.name, this)
+		thisRef.arguments += argumentDelegate
 
-	val config: Config
+		return argumentDelegate
+	}
 
-	abstract class Config {
+	val config: Config<T>
+
+	abstract class Config<T> {
 		var description: String? = null
+		var optional: Boolean = false
+		var default: T? = null
 	}
 
 	fun parse(token: String): T

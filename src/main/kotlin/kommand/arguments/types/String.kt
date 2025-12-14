@@ -4,7 +4,7 @@ import kommand.arguments.Argument
 import kommand.arguments.ArgumentDefinition
 
 class StringArgument(override val config: Config) : ArgumentDefinition<String>() {
-	class Config : Argument.Config() {
+	class Config : Argument.Config<String>() {
 		var greedy = false
 	}
 
