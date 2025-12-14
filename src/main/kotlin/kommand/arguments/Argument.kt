@@ -7,7 +7,7 @@ import kotlin.reflect.KProperty
 sealed interface Argument<T>: PropertyDelegateProvider<Syntax, ArgumentDelegate<T>> {
 	override fun provideDelegate(thisRef: Syntax, property: KProperty<*>): ArgumentDelegate<T> {
 		val argumentDelegate = ArgumentDelegate(property.name, this)
-		thisRef.arguments += argumentDelegate
+		thisRef.arguments.add(argumentDelegate)
 
 		return argumentDelegate
 	}
