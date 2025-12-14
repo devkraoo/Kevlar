@@ -2,11 +2,11 @@ package kommand.syntax
 
 import kommand.KommandContext
 
-class ExecutableSyntax<S: Syntax>(
-	private val syntax: S,
-	private val executor: SyntaxExecutor<S>
+data class ExecutableSyntax<S: Syntax>(
+	val scope: S,
+	val executor: SyntaxExecutor<S>
 ) {
-	fun executes(context: KommandContext) {
-		with(context) { syntax.executor() }
+	fun execute(context: KommandContext) {
+		with(context) { scope.executor() }
 	}
 }
