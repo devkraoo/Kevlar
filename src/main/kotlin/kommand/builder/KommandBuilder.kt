@@ -11,15 +11,19 @@ class KommandBuilder(private val builder: Builder): ReadOnlyProperty<Any?, Komma
 	class Builder {
 		var description: String = ""
 		var aliases = listOf<String>()
+		val syntaxes = mutableListOf<ExecutableSyntax<*>>()
 
-		operator fun <E: ExecutableSyntax<*>> E.unaryPlus() {  }
+		operator fun <E: ExecutableSyntax<*>> E.unaryPlus() {
+			syntaxes.add(this)
+		}
 	}
 
 	private fun Builder.build(name: String): Kommand =
 		Kommand(
 			name,
 			description,
-			aliases
+			aliases,
+			syntaxes
 		)
 }
 
