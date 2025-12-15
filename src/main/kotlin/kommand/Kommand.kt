@@ -1,4 +1,4 @@
-package kommand.builder
+package kommand
 
 import kommand.syntax.SyntaxBinding
 

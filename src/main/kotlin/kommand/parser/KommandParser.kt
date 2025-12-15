@@ -2,7 +2,7 @@ package kommand.parser
 
 import kommand.KommandManager
 import kommand.arguments.ArgumentDelegate
-import kommand.builder.Kommand
+import kommand.Kommand
 import kommand.syntax.SyntaxBinding
 
 object KommandParser {

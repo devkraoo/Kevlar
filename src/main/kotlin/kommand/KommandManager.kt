@@ -1,6 +1,6 @@
 package kommand
 
-import kommand.builder.Kommand
+import kommand.Kommand
 import kommand.exceptions.UnknownKommand
 import kommand.parser.KommandParser
 

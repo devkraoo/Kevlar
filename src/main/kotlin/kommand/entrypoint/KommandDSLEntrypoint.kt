@@ -1,7 +1,7 @@
 package kommand.entrypoint
 
 import kommand.KommandDSLElement
-import kommand.builder.Kommand
+import kommand.Kommand
 import kommand.syntax.SyntaxBinding
 import kommand.syntax.Syntax
 import kommand.syntax.SyntaxExecutor
