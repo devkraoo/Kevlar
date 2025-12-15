@@ -1,6 +1,6 @@
 package kommand.parser
 
-import kommand.KommandManager
+import kommand.manager.KommandManager
 import kommand.arguments.ArgumentDelegate
 import kommand.Kommand
 import kommand.syntax.SyntaxBinding

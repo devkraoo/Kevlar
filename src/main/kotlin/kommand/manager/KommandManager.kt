@@ -1,4 +1,4 @@
-package kommand
+package kommand.manager
 
 import kommand.Kommand
 import kommand.exceptions.UnknownKommand
