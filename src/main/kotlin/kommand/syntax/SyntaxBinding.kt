@@ -2,7 +2,7 @@ package kommand.syntax
 
 import kommand.KommandContext
 
-data class ExecutableSyntax<S: Syntax>(
+data class SyntaxBinding<S: Syntax>(
 	val scope: S,
 	val executor: SyntaxExecutor<S>
 ) {

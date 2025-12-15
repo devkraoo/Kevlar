@@ -1,7 +1,7 @@
 package kommand.builder
 
 import kommand.dsl.KommandDSLElement
-import kommand.syntax.ExecutableSyntax
+import kommand.syntax.SyntaxBinding
 import kommand.syntax.Syntax
 import kommand.syntax.SyntaxExecutor
 import kotlin.properties.ReadOnlyProperty
@@ -14,7 +14,7 @@ class KommandBuilder(private val builder: Builder): ReadOnlyProperty<Any?, Komma
 	class Builder : KommandDSLElement {
 		var description: String = ""
 		var aliases = listOf<String>()
-		val syntaxes = mutableListOf<ExecutableSyntax<*>>()
+		val syntaxes = mutableListOf<SyntaxBinding<*>>()
 
 		operator fun String.div(other: String) =
 			listOf(this) + other
@@ -23,7 +23,7 @@ class KommandBuilder(private val builder: Builder): ReadOnlyProperty<Any?, Komma
 			this + other
 
 		infix fun <S: Syntax> S.executes(executor: SyntaxExecutor<S>) {
-			syntaxes += ExecutableSyntax(this, executor)
+			syntaxes += SyntaxBinding(this, executor)
 		}
 	}
 
