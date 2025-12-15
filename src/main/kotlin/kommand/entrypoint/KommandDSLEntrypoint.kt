@@ -1,6 +1,7 @@
-package kommand.builder
+package kommand.entrypoint
 
-import kommand.dsl.KommandDSLElement
+import kommand.KommandDSLElement
+import kommand.builder.Kommand
 import kommand.syntax.SyntaxBinding
 import kommand.syntax.Syntax
 import kommand.syntax.SyntaxExecutor

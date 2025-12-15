@@ -1,7 +1,7 @@
 package kommand
 
 import kommand.arguments.types.string
-import kommand.builder.kommand
+import kommand.entrypoint.kommand
 import kommand.syntax.Syntax
 import kotlin.test.Test
 

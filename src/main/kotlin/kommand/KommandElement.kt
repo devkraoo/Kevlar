@@ -1,4 +1,4 @@
-package kommand.dsl
+package kommand
 
 @DslMarker
 annotation class KommandMarker
