@@ -1,8 +1,8 @@
 package kommand
 
+import kommand.arguments.Arguments
 import kommand.arguments.types.string
 import kommand.entrypoint.kommand
-import kommand.syntax.Syntax
 import kotlin.test.Test
 
 class KommandDslTest {
@@ -14,14 +14,14 @@ class KommandDslTest {
 			description = "nga"
 			aliases = "hi" / "hi" / "e"
 
-			object : Syntax() {
+			object : Arguments() {
 				val flag by string { description = "flag"; greedy = true }
 				val text by string { }
 			} executes {
 				println("First Syntax: ${flag.value}, ${text.v}")
 			}
 
-			object : Syntax() {
+			object : Arguments() {
 				val flag by string { description = "flag"; greedy = true }
 				val text by string { }
 			} executes {

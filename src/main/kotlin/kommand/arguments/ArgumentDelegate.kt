@@ -1,12 +1,11 @@
 package kommand.arguments
 
 import kommand.KommandContext
-import kommand.syntax.Syntax
 import kotlin.properties.ReadOnlyProperty
 import kotlin.reflect.KProperty
 
-class ArgumentDelegate<T>(val name: String, impl: Argument<T>) : Argument<T> by impl, ReadOnlyProperty<Syntax, ArgumentDelegate<T>> {
-	override fun getValue(thisRef: Syntax, property: KProperty<*>): ArgumentDelegate<T> =
+class ArgumentDelegate<T>(val name: String, impl: Argument<T>) : Argument<T> by impl, ReadOnlyProperty<Arguments, ArgumentDelegate<T>> {
+	override fun getValue(thisRef: Arguments, property: KProperty<*>): ArgumentDelegate<T> =
 		this
 
 	context(context: KommandContext)

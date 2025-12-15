@@ -23,6 +23,8 @@ class KommandDSLEntrypoint(private val builder: Builder): ReadOnlyProperty<Any?,
 		operator fun List<String>.div(other: String) =
 			this + other
 
+
+
 		infix fun <S: Syntax> S.executes(executor: SyntaxExecutor<S>) {
 			syntaxes += SyntaxBinding(this, executor)
 		}
