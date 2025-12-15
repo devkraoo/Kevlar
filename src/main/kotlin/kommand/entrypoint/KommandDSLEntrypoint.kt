@@ -8,7 +8,7 @@ import kommand.syntax.SyntaxExecutor
 import kotlin.properties.ReadOnlyProperty
 import kotlin.reflect.KProperty
 
-class KommandBuilder(private val builder: Builder): ReadOnlyProperty<Any?, Kommand> {
+class KommandDSLEntrypoint(private val builder: Builder): ReadOnlyProperty<Any?, Kommand> {
 	override fun getValue(thisRef: Any?, property: KProperty<*>): Kommand =
 		builder.build(property.name)
 
@@ -37,5 +37,5 @@ class KommandBuilder(private val builder: Builder): ReadOnlyProperty<Any?, Komma
 		)
 }
 
-fun kommand(init: KommandBuilder.Builder.() -> Unit) =
-	KommandBuilder(KommandBuilder.Builder().apply(init))
+fun kommand(init: KommandDSLEntrypoint.Builder.() -> Unit) =
+	KommandDSLEntrypoint(KommandDSLEntrypoint.Builder().apply(init))
