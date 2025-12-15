@@ -16,6 +16,12 @@ class KommandBuilder(private val builder: Builder): ReadOnlyProperty<Any?, Komma
 		var aliases = listOf<String>()
 		val syntaxes = mutableListOf<ExecutableSyntax<*>>()
 
+		operator fun String.div(other: String) =
+			listOf(this) + other
+
+		operator fun List<String>.div(other: String) =
+			this + other
+
 		infix fun <S: Syntax> S.executes(executor: SyntaxExecutor<S>) {
 			syntaxes += ExecutableSyntax(this, executor)
 		}
