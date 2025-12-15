@@ -3,7 +3,6 @@ package kommand
 import kommand.arguments.types.string
 import kommand.builder.kommand
 import kommand.syntax.Syntax
-import kommand.syntax.executes
 import kotlin.test.Test
 
 class KommandDslTest {
@@ -13,15 +12,15 @@ class KommandDslTest {
 
 		val fly by kommand {
 			description = "nga"
-			aliases = listOf("hi")
+			aliases = listOf()
 
-			+object : Syntax() {
+			object : Syntax() {
 				val flag by string { description = "flag"; greedy = true }
 				val text by string { }
+			} executes {
+				println("First Syntax: ${flag.value}, ${text.v}")
 			}
-				.executes {
-					println("First Syntax: ${flag.value}, ${text.v}")
-				}
+
 		}
 	}
 }
