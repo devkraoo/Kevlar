@@ -1,17 +1,6 @@
 package kommand.arguments
 
-import kommand.syntax.Syntax
-import kotlin.properties.PropertyDelegateProvider
-import kotlin.reflect.KProperty
-
-sealed interface Argument<T>: PropertyDelegateProvider<Syntax, ArgumentDelegate<T>> {
-	override fun provideDelegate(thisRef: Syntax, property: KProperty<*>): ArgumentDelegate<T> {
-		val argumentDelegate = ArgumentDelegate(property.name, this)
-		thisRef.arguments.add(argumentDelegate)
-
-		return argumentDelegate
-	}
-
+sealed interface Argument<T> {
 	val config: Config<T>
 
 	abstract class Config<T> {

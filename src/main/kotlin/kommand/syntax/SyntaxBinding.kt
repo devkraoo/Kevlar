@@ -1,12 +1,13 @@
 package kommand.syntax
 
 import kommand.KommandContext
+import kommand.arguments.Arguments
 
-data class SyntaxBinding<S: Syntax>(
-	val scope: S,
-	val executor: SyntaxExecutor<S>
+data class SyntaxBinding<A: Arguments>(
+	val syntax: Syntax<A>,
+	val executor: ArgumentExecutor<A>
 ) {
 	fun execute(context: KommandContext) {
-		with(context) { scope.executor() }
+		syntax.execute(executor, context)
 	}
 }
