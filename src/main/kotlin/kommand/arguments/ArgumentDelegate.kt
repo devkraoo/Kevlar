@@ -4,7 +4,10 @@ import kommand.KommandContext
 import kotlin.properties.ReadOnlyProperty
 import kotlin.reflect.KProperty
 
-class ArgumentDelegate<T>(val name: String, impl: Argument<T>) : Argument<T> by impl, ReadOnlyProperty<Arguments, ArgumentDelegate<T>> {
+class ArgumentDelegate<T>(val name: String, impl: Argument<T>) :
+	Argument<T> by impl,
+	ReadOnlyProperty<Arguments, ArgumentDelegate<T>>
+{
 	override fun getValue(thisRef: Arguments, property: KProperty<*>): ArgumentDelegate<T> =
 		this
 
