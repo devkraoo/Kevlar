@@ -1,6 +1,6 @@
 package kommand.arguments
 
-sealed interface Argument<T> {
+sealed interface Argument<T: Any> {
 	val config: Config<T>
 
 	abstract class Config<T> {
