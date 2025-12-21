@@ -1,6 +1,7 @@
 package kommand
 
 import kommand.arguments.Arguments
+import kommand.arguments.types.boolean
 import kommand.arguments.types.string
 import kommand.entrypoint.kommand
 import kotlin.test.Test
@@ -22,10 +23,9 @@ class KommandDslTest {
 			}
 
 			object : Arguments() {
-				val flag by string { description = "flag"; greedy = true }
-				val text by string { }
+				val bool by boolean { description = "bool" }
 			} executes {
-				println("First Syntax: ${flag.value}, ${text.v}")
+				println("Second Syntax: ${bool.value}")
 			}
 		}
 	}
