@@ -13,7 +13,7 @@ class ArgumentDelegate<T: Any>(val name: String, impl: Argument<T>) :
 
 	context(context: KommandContext)
 	val value: T
-		get() = context.get(name)
+		get() = context.get(this)
 
 	context(context: KommandContext)
 	val v: T

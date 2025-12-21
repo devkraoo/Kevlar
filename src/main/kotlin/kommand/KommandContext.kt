@@ -1,6 +1,10 @@
 package kommand
 
-data class KommandContext(private val args: Map<String, Any>) {
+import kommand.arguments.ArgumentDelegate
+
+data class KommandContext(
+	private val args: Map<ArgumentDelegate<*>, Any>
+) {
 	@Suppress("UNCHECKED_CAST")
-	fun <T> get(argument: String): T = args[argument] as T
+	fun <T: Any> get(argument: ArgumentDelegate<T>): T = args[argument] as T
 }
