@@ -1,5 +1,5 @@
 plugins {
-    kotlin("jvm") version "2.1.0"
+    kotlin("jvm") version "2.2.21"
 }
 
 group = "me.devkrao"
@@ -17,5 +17,9 @@ tasks.test {
     useJUnitPlatform()
 }
 kotlin {
+    compilerOptions {
+        freeCompilerArgs.add("-Xcontext-parameters")
+    }
+
     jvmToolchain(23)
 }
