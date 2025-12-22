@@ -1,7 +1,6 @@
 package kommand.syntax
 
 import kommand.KommandContext
-import kommand.arguments.ArgumentDelegate
 import kommand.arguments.Arguments
 
 class Syntax<A: Arguments> internal constructor(

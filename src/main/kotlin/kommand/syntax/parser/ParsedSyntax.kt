@@ -1,4 +1,4 @@
-package kommand.parser
+package kommand.syntax.parser
 
 import kommand.KommandContext
 import kommand.arguments.Arguments
