@@ -1,10 +1,10 @@
-package kommand.syntax.parser
+package kommand.parser
 
 import kommand.KommandContext
 import kommand.arguments.Arguments
 import kommand.syntax.SyntaxBinding
 
-class ParsedSyntax<A: Arguments>(
+class ParsedCommand<A: Arguments>(
 	private val binding: SyntaxBinding<A>,
 	private val context: KommandContext,
 ) {

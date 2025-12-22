@@ -1,10 +1,10 @@
-package kommand.parser
+package kommand.syntax.parser
 
-import kommand.syntax.parser.ParsedSyntax
+import kommand.KommandContext
 
 sealed interface SyntaxAttempt {
 	data class Valid(
-		val parsed: ParsedSyntax<*>
+		val context: KommandContext
 	) : SyntaxAttempt
 
 	data class Invalid(

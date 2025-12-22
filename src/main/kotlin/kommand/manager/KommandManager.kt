@@ -3,6 +3,7 @@ package kommand.manager
 import kommand.Kommand
 import kommand.exceptions.UnknownKommand
 import kommand.parser.KommandParser
+import kommand.parser.ParseAttempt
 
 object KommandManager {
 	private val kommands = HashMap<String, Kommand>()
@@ -20,8 +21,10 @@ object KommandManager {
 		kommands[name] ?: throw UnknownKommand("Command '$name' not found")
 
 	fun execute(input: String) {
-		val kommand = KommandParser.parse(input)
-		kommand.execute()
+		when (val kommand = KommandParser.parse(input)) {
+			is ParseAttempt.Valid -> kommand.parsed.execute()
+			is ParseAttempt.Invalid -> throw UnknownKommand("Invalid detailed command")
+		}
 	}
 
 }
