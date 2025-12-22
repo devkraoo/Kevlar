@@ -4,7 +4,7 @@ import kommand.KommandDSLElement
 import kotlin.reflect.KProperty
 
 abstract class Arguments : KommandDSLElement {
-	operator fun <T> Argument<T>.provideDelegate(thisRef: Arguments, property: KProperty<*>): ArgumentDelegate<T> {
+	operator fun <T: Any> Argument<T>.provideDelegate(thisRef: Arguments, property: KProperty<*>): ArgumentDelegate<T> {
 		val delegate = ArgumentDelegate(property.name, this)
 		register(delegate)
 
@@ -12,7 +12,7 @@ abstract class Arguments : KommandDSLElement {
 	}
 
 	private val _delegates = mutableListOf<ArgumentDelegate<*>>()
-	val delegates: List<ArgumentDelegate<*>>
+	internal val delegates: List<ArgumentDelegate<*>>
 		get() = _delegates.toList()
 
 	private fun register(arg: ArgumentDelegate<*>) {

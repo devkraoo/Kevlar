@@ -1,11 +1,13 @@
 package kommand
 
 import kommand.arguments.Arguments
+import kommand.arguments.types.boolean
 import kommand.arguments.types.string
 import kommand.entrypoint.kommand
+import kommand.manager.KommandManager
 import kotlin.test.Test
 
-class KommandDslTest {
+class KommandDSLTest {
 
 	@Test
 	fun `kommand DSL builds without throwing an exception`() {
@@ -22,11 +24,13 @@ class KommandDslTest {
 			}
 
 			object : Arguments() {
-				val flag by string { description = "flag"; greedy = true }
-				val text by string { }
+				val bool by boolean { description = "bool" }
 			} executes {
-				println("First Syntax: ${flag.value}, ${text.v}")
+				println("Second Syntax: ${bool.value}")
 			}
 		}
+
+		KommandManager.register(fly)
+		KommandManager.execute("/fly hello world")
 	}
 }

@@ -9,7 +9,7 @@ class StringArgument(override val config: Config) : ArgumentDefinition<String>()
 	}
 
 	override fun parse(token: String): String =
-		TODO()
+		token
 }
 
 fun string(init: StringArgument.Config.() -> Unit) =

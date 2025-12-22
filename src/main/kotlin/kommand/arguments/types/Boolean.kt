@@ -7,7 +7,7 @@ class BooleanArgument(override val config: Config) : ArgumentDefinition<Boolean>
 	class Config : Argument.Config<Boolean>()
 
 	override fun parse(token: String): Boolean =
-		TODO()
+		token.toBoolean()
 }
 
 fun boolean(init: BooleanArgument.Config.() -> Unit) =
