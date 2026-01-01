@@ -9,7 +9,7 @@ class KevlarKotlinJVMConvention : Plugin<Project> {
 		plugins.apply(libs.findPlugin("kotlin-jvm").get().get().pluginId)
 
 		extensions.configure<KotlinJvmProjectExtension> {
-			jvmToolchain(23)
+			jvmToolchain(libs.findVersion("jvm").get().strictVersion.toInt())
 		}
 	}
 }
