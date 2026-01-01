@@ -1,0 +1,11 @@
+[versions]
+kotlin = "2.2.21"
+
+[libraries]
+kotlin-gradle-plugin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
+
+[plugins]
+kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
+
+#Build Conventions
+kelvar-kotlin-jvm = { id = "kevlar.kotlin.jvm" }
