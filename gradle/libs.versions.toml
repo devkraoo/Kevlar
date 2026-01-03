@@ -1,6 +1,6 @@
 [versions]
 kotlin = "2.2.21"
-jvm = "23"
+jvm = { strictly = "23" }
 
 [libraries]
 kotlin-gradle-plugin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
@@ -9,4 +9,6 @@ kotlin-gradle-plugin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", v
 kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
 
 #Build Conventions
-kelvar-kotlin-jvm = { id = "kevlar.kotlin.jvm" }
+kevlarConventions-kotlin-jvm = { id = "kevlarConventions.kotlin.jvm" }
+kevlarConventions-kotlin-test = { id = "kevlarConventions.kotlin.test" }
+kevlarConventions-kotlin-repositories = { id = "kevlarConventions.kotlin.repositories" }

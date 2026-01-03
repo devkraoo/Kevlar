@@ -6,4 +6,9 @@ plugins {
 
 rootProject.name = "kevlar"
 
+val projects = listOf(
+	"kevlar-kommand"
+)
+include(projects)
+
 includeBuild("build-logic")

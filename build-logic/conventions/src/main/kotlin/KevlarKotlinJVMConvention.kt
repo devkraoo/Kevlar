@@ -6,10 +6,15 @@ import org.jetbrains.kotlin.gradle.dsl.KotlinJvmProjectExtension
 
 class KevlarKotlinJVMConvention : Plugin<Project> {
 	override fun apply(project: Project): Unit = with(project) {
-		plugins.apply(libs.findPlugin("kotlin-jvm").get().get().pluginId)
+		val pluginId = libs.findPlugin("kotlin-jvm").get().get().pluginId
+		plugins.apply(pluginId)
 
-		extensions.configure<KotlinJvmProjectExtension> {
-			jvmToolchain(libs.findVersion("jvm").get().strictVersion.toInt())
+		kotlin {
+			val version = libs.findVersion("jvm").get().strictVersion.toInt()
+			jvmToolchain(version)
 		}
 	}
 }
+
+private fun Project.kotlin(configure: KotlinJvmProjectExtension.() -> Unit) =
+	extensions.configure(configure)
