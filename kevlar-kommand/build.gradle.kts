@@ -1,21 +1,9 @@
 plugins {
-    alias(libs.plugins.kelvar.kotlin.jvm)
+    alias(libs.plugins.kevlarConventions.kotlin.jvm)
+    alias(libs.plugins.kevlarConventions.kotlin.test)
+    alias(libs.plugins.kevlarConventions.kotlin.repositories)
 }
 
-repositories {
-    mavenCentral()
-}
-
-dependencies {
-    testImplementation(kotlin("test"))
-}
-
-tasks.test {
-    useJUnitPlatform()
-}
-
-kotlin {
-    compilerOptions {
-        freeCompilerArgs.add("-Xcontext-parameters")
-    }
+kotlin.compilerOptions {
+    freeCompilerArgs.add("-Xcontext-parameters")
 }

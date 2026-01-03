@@ -1,5 +1,5 @@
 plugins {
-	alias(libs.plugins.kelvar.kotlin.jvm) apply false
+	alias(libs.plugins.kevlarConventions.kotlin.jvm) apply false
 }
 
 group = "me.devkraoo"

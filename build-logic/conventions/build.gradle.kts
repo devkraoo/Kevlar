@@ -13,8 +13,18 @@ dependencies {
 gradlePlugin {
 	plugins {
 		register("KevlarKotlinJVMConvention") {
-			id = libs.plugins.kelvar.kotlin.jvm.get().pluginId
+			id = libs.plugins.kevlarConventions.kotlin.jvm.get().pluginId
 			implementationClass = "KevlarKotlinJVMConvention"
+		}
+
+		register("KevlarKotlinTestConvention") {
+			id = libs.plugins.kevlarConventions.kotlin.test.get().pluginId
+			implementationClass = "KevlarKotlinTestConvention"
+		}
+
+		register("KevlarKotlinRepositoriesConvention") {
+			id = libs.plugins.kevlarConventions.kotlin.repositories.get().pluginId
+			implementationClass = "KevlarKotlinRepositoriesConvention"
 		}
 	}
 }
