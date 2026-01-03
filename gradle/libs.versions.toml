@@ -1,6 +1,6 @@
 [versions]
 kotlin = "2.2.21"
-jvm = "23"
+jvm = { strictly = "21" }
 
 [libraries]
 kotlin-gradle-plugin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }

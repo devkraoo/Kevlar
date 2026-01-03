@@ -1,9 +1,6 @@
 plugins {
-    kotlin("jvm") version "2.2.21"
+    alias(libs.plugins.kelvar.kotlin.jvm)
 }
-
-group = "me.devkrao"
-version = "1.0-SNAPSHOT"
 
 repositories {
     mavenCentral()
@@ -16,10 +13,9 @@ dependencies {
 tasks.test {
     useJUnitPlatform()
 }
+
 kotlin {
     compilerOptions {
         freeCompilerArgs.add("-Xcontext-parameters")
     }
-
-    jvmToolchain(23)
 }
